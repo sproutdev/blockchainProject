@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Start The Quiz</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<script src = "main.js"></script>
+</head>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+
+<div class="container">
+    <br><br>
+        <div class="form-style-8" id="one">
+            
+            <h2> Quiz has started <span class="badge badge-secondary"></span></h2> 
+            <button type="button" value="Toggle fullscreen" class="btn-md btn-primary" onclick="openFullscreen()"> </button>
+            Time Left: <p id="demo"></p>
+  
+            <form id = "quiz" name = "quiz" action="/checkans">
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> Bitcoin is an example of a permissioned blockchain. </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question1" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> Bitcoin's consensus algorithm is based on Proof-of-Stake. </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question2" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> A nonce is a random string of numbers </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question3" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> ASIC stands for application specific integrated circuit. </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question4" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> When a malicious entity/user performs a 51% attack, it attempts to steal other user's private keys. </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question5" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> In Bitcoin, an increased block size would affect the propagation time of the block. </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question6" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> In Proof-of-Work, every miner works on the same block of transactions until one of them solves it. </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question7" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> P2P stands for Peer to Peer </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question8" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> Asymmetric encryption uses only public keys: </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question9" placeholder="Enter true or false">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1"> Genesis block is the 2nd transaction of a Blockchain </label>
+                    <input id = "textbox" type="text" class="form-control" name = "question10" placeholder="Enter true or false">
+                </div>
+                
+                <input id="but" type="submit" class="btn btn-primary" value="Submit Quiz">
+            </form>
+      </div>
+  </div>
+
+</form>
+
+<div id = "after_submit">
+<p id = "number_correct"></p>
+<p id = "message"></p>
+<img id = "picture">
+</div>
+
+
+</body>
+<script>
+
+    var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+    
+      var distance = countDownDate - now;
+
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+      document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+    
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+
+        window.onload = function(){
+    if (document.cookie.indexOf("_instance=true") === -1) {
+    document.cookie = "_instance=true";
+
+    window.onunload = function(){
+        document.cookie ="_instance=true;expires=Thu, 01-Jan-1970 00:00:01 GMT";
+    };
+    }
+    else {
+         alert(" Security Alerts.You Are Opening Multiple Window. This window will now close.");
+         var win = window.open("about:blank", "_self"); win.close();
+
+    }
+    };
+    
+    window.onload=initPage;
+function initPage() {
+  document.links[1].oncontextmenu=function () {return false};
+}
+
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
+}
+    </script>
+
+
+
+</html>

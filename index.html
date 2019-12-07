@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BitCoin Exam Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body oncopy="return false" oncut="return false" onpaste="return false" oncontextmenu="return false;">
+  <div class="container">
+  <br><br>
+
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Welcome to ProcMon</h1>
+        <p class="lead">Take tests. Anywhere. Everywhere.</p>
+      </div>
+    </div>
+
+      <div class="form-style-8" id="one">
+
+          <form id="myform" method="GET">
+              <div class="form-group">
+                  <label for="exampleInputPassword1"> Name </label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your name goes here">
+              </div>
+
+              <div class="form-group">
+                    <label for="exampleInputPassword1"> Enter your ID </label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your ID goes here">
+              </div>    
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Enter your blockchain address </label>
+                <input type="text" name="add" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="PLease do not type in your private address here">
+                <small id="emailHelp" class="form-text text-muted"></small>
+              </div>
+              
+              <input type="submit" class="btn btn-primary" value="Enter Quiz" onclick="document.forms['myform'].action='quiz.html'">
+          </form>
+    </div>
+  </div>
+
+  </body>
+
+  <script>
+        document.addEventListener('click', function (event) {
+
+        if (!event.target.hasAttribute('data-toggle-fullscreen')) return;
+
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          document.documentElement.requestFullscreen();
+        }
+
+        }, false);
+  </script>
+</html>
